@@ -92,7 +92,7 @@ and (max-device-width : 568px){
   #search-field{
     width: 82%;
   }
-  #search-field, #submit-button{
+  #search-field, #submit-button, button{
     font-size: 33px;
     height: 38px;
     border: 0;

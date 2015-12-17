@@ -59,18 +59,6 @@ function createList(responseAPI){
   for (var i = 0; i < streams.length; i++) {
     buildLiElement();
     appendDataTOLi(streams[i]);
-    // $('li').last().append("<img src="+streams[i].preview.large+" class='item-image'>
-    //                       <div class='text-data'>
-    //                           <h1>
-    //                               <a href="+streams[i].channel.url+">"+streams[i].channel.display_name+"</a>
-    //                           </h1>
-    //                           <p class='game-name'>"+streams[i].channel.game+"
-    //                               <span> - "+streams[i].viewers +" viewers</span>
-    //                           </p>
-    //                           <br>
-    //                           <p class='stream-description'>"+streams[i].channel.status+"
-    //                           </p>
-    //                       </div>");
   }
 }
 function buildLiElement(){
