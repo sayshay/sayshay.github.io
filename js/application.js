@@ -10,19 +10,15 @@ function ajaxCall(argument) {
   //building URL
   twitch_url = buildURL(argument, searchValue);
 
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-      if( xhttp.readyState == 4 && xhttp.status == 200 ) {
-          responseAPI = xhttp.responseText;
-          responseAPI = JSON.parse(responseAPI);
-          createList(responseAPI);
-          setPagesCount(responseAPI);
-          setNavButtonsAvailabity(responseAPI._links);
-          Node.searchField.value = '';
-      }
-  };
-  xhttp.open("GET", twitch_url, true);
-  xhttp.send();
+  loadJSONP( twitch_url, function(data) {
+      console.log(data);
+      createList(data);
+      setPagesCount(data);
+      responseAPI  = data;
+      setNavButtonsAvailabity(data._links);
+      Node.searchField.value = '';
+    }
+  );
 }
 
 function buildURL(argument, searchValue){
@@ -62,7 +58,7 @@ function createList(responseAPI){
     Node.totalNumber.innerHTML = "Total results: " + responseAPI._total;
     document.getElementsByTagName('ul')[0].innerHTML = '';
     for (var i = 0; i < streams.length; i++) {
-       appendNodes(streams[i], i);
+        appendNodes(streams[i], i);
     }
 }
 
@@ -100,4 +96,3 @@ function displayPrev(){
     var prev_url = responseAPI._links.prev;
     ajaxCall(prev_url);
 }
-

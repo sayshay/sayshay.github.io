@@ -25,12 +25,15 @@ section{
 }
 li{
   list-style: none;
+  margin-bottom: 1%;
 }
 .item-image{
   width: 30%;
   height: auto;
   border-radius: 6px;
   margin-top: 1%;
+  border: 1px solid #333;
+  box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
 }
 a{
   text-decoration: none;
