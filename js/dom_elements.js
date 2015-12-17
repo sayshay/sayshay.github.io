@@ -11,5 +11,17 @@ var Node = {
 
     section: document.getElementsByTagName('section')[0],
 
-    totalNumber: document.getElementsByClassName('total-number')[0]
+    totalNumber: document.getElementsByClassName('total-number')[0],
+
+    gameList: document.getElementById("game-list"),
+
+    lastListItem: document.getElementsByTagName("UL")[0].lastChild,
+
+    textDataClass: document.getElementsByClassName("text-data"),
+
+    gameName: document.getElementsByClassName("game-name"),
+
+    gameLink: document.getElementsByTagName('H1'),
+
+    lastListItem: document.getElementsByTagName("UL")[0]
 }

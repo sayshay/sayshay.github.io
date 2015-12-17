@@ -2,8 +2,7 @@
 var responseAPI;
 var pageNumber = 1;
 var pageCount;
-// var leftButton = document.getElementById('left-button');
-// var rightButton = document.getElementById('right-button');
+
 
 function ajaxCall(argument) {
   argument = argument || '';
@@ -69,21 +68,21 @@ function createList(responseAPI){
 
 function appendNodes(stream, index){
     //creaet LI item
-    document.getElementById("game-list").innerHTML += "<li></li>"
+    Node.gameList.innerHTML += "<li></li>"
     // create Image
-    document.getElementsByTagName("UL")[0].lastChild.innerHTML += ("<img src=\"" + stream.preview.large + "\"class='item-image'>");
+    Node.lastListItem.lastChild.innerHTML += ("<img src=\"" + stream.preview.large + "\"class='item-image'>");
     //create div
-    document.getElementsByTagName("UL")[0].lastChild.innerHTML += "<div class=\"text-data\"></div>"
+    Node.lastListItem.lastChild.innerHTML += "<div class=\"text-data\"></div>"
     // create H1
-    document.getElementsByClassName("text-data")[index].innerHTML += '<h1></h1>'
+    Node.textDataClass[index].innerHTML += '<h1></h1>'
     //create Link
-    document.getElementsByTagName('H1')[index].innerHTML += ("<a href=\""+stream.channel.url+"\">"+stream.channel.display_name+"</a>");
+    Node.gameLink[index].innerHTML += ("<a href=\""+stream.channel.url+"\">"+stream.channel.display_name+"</a>");
     //create first paragraph
-    document.getElementsByClassName("text-data")[index].innerHTML += ("<p class='game-name'>" + stream.channel.game + "</p>");
+    Node.textDataClass[index].innerHTML += ("<p class='game-name'>" + stream.channel.game + "</p>");
     //create span
-    document.getElementsByClassName("game-name")[index].innerHTML += ("<span> - " + stream.viewers + " viewers</span><br>");
+    Node.gameName[index].innerHTML += ("<span> - " + stream.viewers + " viewers</span><br>");
     //create description
-    document.getElementsByClassName('text-data')[index].innerHTML += ("<p>" + stream.channel.status + "</p>");
+    Node.textDataClass[index].innerHTML += ("<p>" + stream.channel.status + "</p>");
 }
 
 
