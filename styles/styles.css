@@ -59,3 +59,42 @@ h1{
 #game-list{
   margin-top: 2%;
 }
+
+/*SMALL SCREENS*/
+@media (max-width: 760px)  {
+  header, section{
+    width: 90%;
+  }
+  li{
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding: 1% 0 1% 0;
+  }
+  .item-image{
+    width: 95%;
+  }
+}
+/*M O B I L E*/
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px){
+  header, section{
+    width: 90%;
+  }
+  li{
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding: 1% 0 1% 0;
+  }
+  .item-image{
+    width: 95%;
+  }
+  #search-field{
+    width: 82%;
+  }
+  #search-field, #submit-button{
+    font-size: 33px;
+    height: 38px;
+    border: 0;
+  }
+}
