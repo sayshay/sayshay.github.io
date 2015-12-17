@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sony Playstation Assignment</title>
+  <link rel="stylesheet" type="text/css" href="styles/styles.css">
+
+</head>
+  <body>
+    <header>
+      <div class='search-form'>
+        <form action="javascript:ajaxCall()">
+          <input type="text" name="search" placeholder="Search query... " id="search-field">
+          <input type="submit" value="Search"  >
+        </form>
+      </div>
+    </header>
+    <section>
+      <span class="total-number"></span>
+      <span class='navigation'>
+        <button id='left-button'>Prev</button>
+          <span id='page-number'>1</span>/
+          <span id='last-page'>10</span>
+        <button id='right-button'>Next</button>
+      </span>
+      <ul id='game-list'>
+        <!-- <li>
+          <img src='juke.png' class='item-image'>
+          <div class='text-data'>
+            <h3>Stream Display Name</h3>
+            <p class="game-name">game name <span class='view-count'>1234</span></p>
+            <p class='stream-description'>stream Description text text text text text text stream Description text text text text text text stream Description text text text text text text stream Description text text text text text text stream Description text text text text text text stream Description text text text text text text</p>
+          </div>
+        </li> -->
+      </ul>
+    </section>
+  </body>
+  <script src="js/application.js"></script>
+</html>
