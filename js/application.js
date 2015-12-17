@@ -1,21 +1,15 @@
 //Variables
 var responseAPI;
-var url;
 var pageNumber = 1;
-var gameList = document.getElementsByClassName("gameList");
 var pageCount;
+// var leftButton = document.getElementById('left-button');
+// var rightButton = document.getElementById('right-button');
 
 function ajaxCall(argument) {
   argument = argument || '';
-  var searchValue = document.forms[0]['search'].value;
+  var searchValue = Node.searchField.value;
   //building URL
-  if(argument){
-      document.getElementById('page-number').innerHTML = pageNumber;
-      url = argument;
-  }else{
-      document.getElementById('page-number').innerHTML = 1;
-      url = "https://api.twitch.tv/kraken/search/streams?q="+searchValue;
-  }
+  twitch_url = buildURL(argument, searchValue);
 
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -25,37 +19,48 @@ function ajaxCall(argument) {
           createList(responseAPI);
           setPagesCount(responseAPI);
           setNavButtonsAvailabity(responseAPI._links);
-          document.getElementById('search-field').value = '';
+          Node.searchField.value = '';
       }
   };
-  xhttp.open("GET", url, true);
+  xhttp.open("GET", twitch_url, true);
   xhttp.send();
+}
+
+function buildURL(argument, searchValue){
+  if(argument){
+      Node.pageNumber.innerHTML = pageNumber;
+      url = argument;
+  }else{
+      Node.pageNumber.innerHTML = 1;
+      url = "https://api.twitch.tv/kraken/search/streams?q="+searchValue;
+  }
+  return url;
 }
 
 function setNavButtonsAvailabity(links){
     if(links.prev){
-        document.getElementById('left-button').disabled = false;
+        Node.leftButton.disabled = false;
     }else{
-        document.getElementById('left-button').disabled = true;
+        Node.leftButton.disabled = true;
     }
     if(links.next && pageNumber != pageCount){
-        document.getElementById('right-button').disabled = false;
+        Node.rightButton.disabled = false;
     }else{
-        document.getElementById('right-button').disabled = true;
+        Node.rightButton.disabled = true;
     }
 }
 
 function setPagesCount(responseAPI){
     pageCount = Math.ceil(responseAPI._total /10 );
-    document.getElementById('last-page').innerHTML = pageCount;
+    Node.lastPage.innerHTML = pageCount;
 }
 
 
 //Build List
 function createList(responseAPI){
-    document.getElementsByTagName('section')[0].style.display = 'block';
+    Node.section.style.display = 'block';
     var streams = responseAPI.streams;
-    document.getElementsByClassName('total-number')[0].innerHTML = "Total results: " + responseAPI._total;
+    Node.totalNumber.innerHTML = "Total results: " + responseAPI._total;
     document.getElementsByTagName('ul')[0].innerHTML = '';
     for (var i = 0; i < streams.length; i++) {
        appendNodes(streams[i], i);
@@ -83,14 +88,14 @@ function appendNodes(stream, index){
 
 
 //Event Listeners
-document.getElementById("right-button").addEventListener("click", displayNext);
+Node.rightButton.addEventListener("click", displayNext);
 function displayNext(){
     pageNumber += 1;
     var next_url = responseAPI._links.next;
     ajaxCall(next_url);
 }
 
-document.getElementById("left-button").addEventListener("click", displayPrev);
+Node.leftButton.addEventListener("click", displayPrev);
 function displayPrev(){
     pageNumber -= 1;
     var prev_url = responseAPI._links.prev;
