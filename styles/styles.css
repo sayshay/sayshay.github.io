@@ -50,6 +50,22 @@ h3, p, .text-data{
 h1{
   text-align: center;
 }
+form{
+  position: relative;
+}
+#search-field {
+  height: 32px;
+  border-radius: 16px;
+  padding-left: 50px;
+  font-size: 20px;
+}
+.search-icon{
+  position: absolute;
+  left: 2%;
+  top: 20%;
+  font-size: 22px !important;
+  color: #808080;
+}
 .text-data{
   display: inline-block;
   width: 66%;
