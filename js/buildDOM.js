@@ -1,36 +1,3 @@
-//Variables
-var responseAPI;
-var pageNumber = 1;
-var pageCount;
-
-
-function ajaxCall(argument) {
-  argument = argument || '';
-  var searchValue = Node.searchField.value;
-  //building URL
-  twitch_url = buildURL(argument, searchValue);
-
-  loadJSONP( twitch_url, function(data) {
-      console.log(data);
-      createList(data);
-      setPagesCount(data);
-      responseAPI  = data;
-      setNavButtonsAvailabity(data._links);
-      Node.searchField.value = '';
-    }
-  );
-}
-
-function buildURL(argument, searchValue){
-  if(argument){
-      Node.pageNumber.innerHTML = pageNumber;
-      url = argument;
-  }else{
-      Node.pageNumber.innerHTML = 1;
-      url = "https://api.twitch.tv/kraken/search/streams?q="+searchValue;
-  }
-  return url;
-}
 
 function setNavButtonsAvailabity(links){
     if(links.prev){
@@ -51,7 +18,7 @@ function setPagesCount(responseAPI){
 }
 
 
-//Build List
+//Build UL List
 function createList(responseAPI){
     Node.section.style.display = 'block';
     var streams = responseAPI.streams;
@@ -79,20 +46,4 @@ function appendNodes(stream, index){
     Node.gameName[index].innerHTML += ("<span> - " + stream.viewers + " viewers</span><br>");
     //create description
     Node.textDataClass[index].innerHTML += ("<p>" + stream.channel.status + "</p>");
-}
-
-
-//Event Listeners
-Node.rightButton.addEventListener("click", displayNext);
-function displayNext(){
-    pageNumber += 1;
-    var next_url = responseAPI._links.next;
-    ajaxCall(next_url);
-}
-
-Node.leftButton.addEventListener("click", displayPrev);
-function displayPrev(){
-    pageNumber -= 1;
-    var prev_url = responseAPI._links.prev;
-    ajaxCall(prev_url);
 }
