@@ -1,9 +1,16 @@
+  /*NORMALIZING BROWSER PRESET STYLES*/
 ul, li, h3, p, body{
   margin: 0;
   padding: 0;
-  font-family: Helvetica,'Arial Narrow',sans-serif;
+  font-family: 'Helvetica','Arial Narrow',sans-serif;
   color: #333;
 }
+input:focus {
+  outline:none;
+}
+
+
+ /*H E A D E R*/
 header{
   width: 60%;
   background-color: ;
@@ -12,6 +19,61 @@ header{
   padding: 4% 0 2% 2%;
   background: #ffd;
   box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+}
+
+form{
+  position: relative;
+}
+#search-field {
+  height: 32px;
+  border-radius: 16px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-left: 50px;
+  font-size: 20px;
+    border: 0;
+    vertical-align: top;
+    font-family: 'Helvetica Neue';
+}
+#submit-button{
+  height: 34px;
+  background-color: #f2f2f2;
+    border: 0;
+  border-radius: 0;
+  color: #808080;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: -2%;
+  min-width: 54px;
+  padding: 0 16px;
+  text-align: center;
+    vertical-align: top;
+    font-family: 'Helvetica Neue';
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  padding-right: 3%;
+  padding-left: 3%;
+}
+.search-icon{
+  position: absolute;
+  left: 2%;
+  top: 20%;
+  font-size: 22px !important;
+  color: #808080;
+}
+
+ /*M A I N    S E C T I O N */
+.text-data{
+  display: inline-block;
+  width: 66%;
+  padding-left: 3%;
+}
+.navigation{
+  float: right;
+  margin-right: 2%;
+}
+#game-list{
+  margin-top: 2%;
 }
 section{
   width: 60%;
@@ -50,34 +112,8 @@ h3, p, .text-data{
 h1{
   text-align: center;
 }
-form{
-  position: relative;
-}
-#search-field {
-  height: 32px;
-  border-radius: 16px;
-  padding-left: 50px;
-  font-size: 20px;
-}
-.search-icon{
-  position: absolute;
-  left: 2%;
-  top: 20%;
-  font-size: 22px !important;
-  color: #808080;
-}
-.text-data{
-  display: inline-block;
-  width: 66%;
-  padding-left: 3%;
-}
-.navigation{
-  float: right;
-  margin-right: 2%;
-}
-#game-list{
-  margin-top: 2%;
-}
+
+
 
 /*SMALL SCREENS*/
 @media (max-width: 760px)  {
@@ -93,6 +129,8 @@ form{
     width: 95%;
   }
 }
+
+
 /*M O B I L E*/
 @media only screen
 and (min-device-width : 320px)
