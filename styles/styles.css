@@ -31,14 +31,15 @@ form{
   border-bottom-right-radius: 0;
   padding-left: 50px;
   font-size: 20px;
-    border: 0;
-    vertical-align: top;
-    font-family: 'Helvetica Neue';
+  border: 0;
+  vertical-align: top;
+  font-family: 'Helvetica Neue';
+  color: #808080;
 }
 #submit-button{
   height: 34px;
   background-color: #f2f2f2;
-    border: 0;
+  border: 0;
   border-radius: 0;
   color: #808080;
   font-size: 16px;
@@ -47,8 +48,8 @@ form{
   min-width: 54px;
   padding: 0 16px;
   text-align: center;
-    vertical-align: top;
-    font-family: 'Helvetica Neue';
+  vertical-align: top;
+  font-family: 'Helvetica Neue';
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
   padding-right: 3%;
@@ -147,7 +148,7 @@ and (max-device-width : 568px){
     width: 95%;
   }
   #search-field{
-    width: 82%;
+    width: 70%;
   }
   #search-field, #submit-button, button{
     font-size: 33px;
