@@ -18,7 +18,7 @@ function setPagesCount(responseAPI){
 }
 
 
-//Build UL List
+//Build UL  List
 function createList(responseAPI){
     Node.section.style.display = 'block';
     var streams = responseAPI.streams;

@@ -33,9 +33,11 @@ function callbackJSONP (data) {
 
 
 function buildURL(argument, searchValue){
+    var url;
     if(argument){
         url = argument;
-    }else{
+    }
+    else{
         Node.pageNumber.innerHTML = 1;
         url = "https://api.twitch.tv/kraken/search/streams?q="+searchValue;
     }
