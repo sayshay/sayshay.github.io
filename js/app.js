@@ -45,19 +45,17 @@ function buildURL(argument, searchValue){
 }
 
 
-//Event Listeners
-Node.rightButton.addEventListener("click", displayNext);
-function displayNext(){
+//Event Listeners Next Button CLick
+Node.rightButton.addEventListener("click", function(){
     pageNumber += 1;
     Node.pageNumber.innerHTML = pageNumber;
     var next_url = responseAPI._links.next;
     getJSON(next_url);
-}
-
-Node.leftButton.addEventListener("click", displayPrev);
-function displayPrev(){
+});
+//Prev Button Click
+Node.leftButton.addEventListener("click", function (){
     pageNumber -= 1;
     Node.pageNumber.innerHTML = pageNumber;
     var prev_url = responseAPI._links.prev;
     getJSON(prev_url);
-}
+});
