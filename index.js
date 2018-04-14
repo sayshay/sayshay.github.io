@@ -1,7 +1,7 @@
 const questions = [
     {
         question: 'Name a mythical creature with single large, pointed, spiraling horn projecting from its forehead.',
-        answers: ['Dragon', 'Unicorn', 'Cat']
+        answers: ['Dragon', 'Unicorn', 'Rhinoceros']
     },
     {
         question: 'Name startup company valued at over $1 billion',
